@@ -7,52 +7,6 @@
     android:background="@drawable/wall"
     tools:context="com.example.tic_tac_toe.MainActivity">
 
-    <TextView
-        android:id="@+id/showt2"
-        android:layout_width="201dp"
-        android:layout_height="308dp"
-        android:layout_above="@+id/gridLayout"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginBottom="3dp"
-        android:fontFamily="monospace"
-        android:gravity="start"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.97"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/view2"
-        android:layout_width="wrap_content"
-        android:layout_height="311dp"
-        android:layout_above="@+id/gridLayout"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="3dp"
-        android:layout_marginLeft="3dp"
-        android:layout_marginEnd="203dp"
-        android:layout_marginRight="203dp"
-        android:layout_marginBottom="3dp"
-        android:fontFamily="monospace"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textColor="#ffffff"
-        android:textSize="14sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/showt"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <GridLayout
         android:id="@+id/gridLayout"
         android:layout_width="350dp"
@@ -168,7 +122,7 @@
     <LinearLayout
         android:id="@+id/winner"
         android:layout_width="wrap_content"
-        android:layout_height="152dp"
+        android:layout_height="213dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
@@ -177,6 +131,7 @@
         android:layout_marginLeft="46dp"
         android:layout_marginEnd="53dp"
         android:layout_marginRight="53dp"
+        android:background="#CF7777"
         android:orientation="vertical"
         android:padding="20dp"
         android:visibility="invisible">
@@ -202,6 +157,12 @@
             android:layout_height="67dp"
             android:onClick="playAgain"
             android:text="PLAY Again?" />
+
+        <Button
+            android:id="@+id/Move"
+            android:layout_width="match_parent"
+            android:layout_height="79dp"
+            android:text="History move" />
 
     </LinearLayout>
 

@@ -1,30 +1,31 @@
-package com.example.tic_tac_toe
+package com.example.xo
+
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
-import com.example.xo.History
-import com.example.xo.R
 
-
-class MainActivity : AppCompatActivity() {
+class FourActivity : AppCompatActivity() {
     //1=Circle  0 =Cross
     var activePlayer = 1
     var gameIsActive = true
     var count = 0
     var text = ""
-    var gameState = intArrayOf(2, 2, 2, 2, 2, 2, 2, 2, 2)
-    var winningPositions = arrayOf(
-        intArrayOf(0, 1, 2),
-        intArrayOf(3, 4, 5),
-        intArrayOf(6, 7, 8),
-        intArrayOf(0, 3, 6),
-        intArrayOf(1, 4, 7),
-        intArrayOf(2, 5, 8),
-        intArrayOf(0, 4, 8),
-        intArrayOf(2, 4, 6)
+    var gameState = intArrayOf(2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2)
+    var winningPosition = arrayOf(
+        intArrayOf(0, 1, 2, 3),
+        intArrayOf(4, 5, 6, 7),
+        intArrayOf(8, 9, 10, 11),
+        intArrayOf(12, 13, 14, 15),
+        intArrayOf(0, 4, 8, 12),
+        intArrayOf(1, 5, 9, 13),
+        intArrayOf(2, 6, 10, 14),
+        intArrayOf(3, 7, 11, 15),
+        intArrayOf(0, 5, 10, 15),
+        intArrayOf(3, 6, 9, 12)
     )
+
     var list: ArrayList<String> = ArrayList()
     val player: ArrayList<String> = ArrayList()
     fun dropIn(view: View) {
@@ -48,47 +49,63 @@ class MainActivity : AppCompatActivity() {
             }
             val move = findViewById<Button>(R.id.Move)
             move.setOnClickListener {
-                val intent = Intent(this, History::class.java)
+                val intent = Intent(this@FourActivity, History::class.java)
                 intent.putExtra("move", list)
                 intent.putExtra("player", player)
                 startActivity(intent)
             }
             if (tappedcounter == 0)
-                text = "Upper left"
+                text = "Line1 left corner"
             else if (tappedcounter == 1)
-                text = "Upper center"
+                text = "Line1 left"
             else if (tappedcounter == 2)
-                text = "Upper right"
+                text = "Line1 right"
             else if (tappedcounter == 3)
-                text = "Center left"
+                text = "Line1 right corner"
             else if (tappedcounter == 4)
-                text = "Center"
+                text = "Line2 left corner"
             else if (tappedcounter == 5)
-                text = "Center right"
+                text = "Line2 left"
             else if (tappedcounter == 6)
-                text = "Bottom left"
+                text = "Line2 right"
             else if (tappedcounter == 7)
-                text = "Bottom Center"
+                text = "Line2 right corner"
             else if (tappedcounter == 8)
-                text = "Bottom right"
+                text = "Line3 left corner"
+            else if (tappedcounter == 9)
+                text = "Line3 left"
+            else if (tappedcounter == 10)
+                text = "Line3 right"
+            else if (tappedcounter == 11)
+                text = "Line3 right corner"
+            else if (tappedcounter == 12)
+                text = "Line4 left corner"
+            else if (tappedcounter == 13)
+                text = "Line4 left"
+            else if (tappedcounter == 14)
+                text = "Line4 right"
+            else if (tappedcounter == 15)
+                text = "Line4 right corner"
             list.add("\n"+text+"\n")
-            for (winningposition in winningPositions) {
+            for (winningposition:IntArray in winningPosition) {
                 if (gameState[winningposition[0]] == gameState[winningposition[1]] && gameState[winningposition[1]] == gameState[winningposition[2]] && gameState[winningposition[0]] != 2
-                ) {
+                    && gameState[winningposition[2]] == gameState[winningposition[3]] ) {
                     if (gameState[winningposition[0]] == 0) txt.text =
                         "Cross Wins!!!"
-                    else if (gameState[winningposition[0]] == 1
-                    ) txt.text = "Circle Wins!!!"
+                    else if (gameState[winningposition[0]] == 1) txt.text =
+                        "Circle Wins!!!"
                     layout.visibility = View.VISIBLE
                     gameIsActive = false
                 }
             }
+
         }
-        if (gameIsActive && count == 9) {
+        if (gameIsActive && count == 16) {
             txt.text = "DRAW"
             layout.visibility = View.VISIBLE
             gameIsActive = false
         }
+
     }
     fun playAgain(view: View) {
         activePlayer = 1
@@ -104,20 +121,13 @@ class MainActivity : AppCompatActivity() {
         for (i in 0 until gridLayout.childCount) {
             (gridLayout.getChildAt(i) as ImageView).setImageResource(0) //p t n
         }
+
     }
     protected override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_four)
+
+
+
     }
 }
-
-
-
-
-
-
-
-
-
-
-

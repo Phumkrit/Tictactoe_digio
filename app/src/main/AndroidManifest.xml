@@ -9,17 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.XO">
+        <activity android:name=".ten"></activity>
+        <activity android:name=".nine" />
+        <activity android:name=".Eight" />
+        <activity android:name=".Seven" />
+        <activity android:name=".six" />
+        <activity android:name=".Five" />
+        <activity android:name=".History" />
+        <activity android:name=".FourActivity" />
         <activity android:name=".Firstpg">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.tic_tac_toe.MainActivity">
-
-        </activity>
+        <activity android:name="com.example.tic_tac_toe.MainActivity" />
     </application>
 
 </manifest>
